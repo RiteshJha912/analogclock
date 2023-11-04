@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Working Clock</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="word">ANALOG CLOCK</div>
+        <div class="clock">
+            <div class="circle" id="sec" style="--clr:#ff3aff;"><i></i></div>
+            <div class="circle circle2" id="min" style="--clr:#ab00b1;"><i></i></div>
+            <div class="circle circle3" id="hr" style="--clr:#850291;"><i></i></div>
+
+
+            <span style="--i:1"><b>1</b></span>
+            <span style="--i:2"><b>2</b></span>
+            <span style="--i:3"><b>3</b></span>
+            <span style="--i:4"><b>4</b></span>
+            <span style="--i:5"><b>5</b></span>
+            <span style="--i:6"><b>6</b></span>
+            <span style="--i:7"><b>7</b></span>
+            <span style="--i:8"><b>8</b></span>
+            <span style="--i:9"><b>9</b></span>
+            <span style="--i:10"><b>10</b></span>
+            <span style="--i:11"><b>11</b></span>
+            <span style="--i:12"><b>12</b></span>
+            
+        </div>
+    </div>
+    <script>
+
+        let hr = document.querySelector('#hr')
+        let min = document.querySelector('#min')
+        let sec = document.querySelector('#sec')
+
+        setInterval(()=>{
+        let day = new Date();
+        let hh = day.getHours()*30;
+        let mm = day.getMinutes()*6;
+        let ss = day.getSeconds()*6;
+
+        hr.style.transform = `rotateZ(${hh+(mm/12)}deg)`;
+        min.style.transform = `rotateZ(${mm}deg)`;
+        sec.style.transform = `rotateZ(${ss}deg)`;
+
+        })
+    </script>
+</body>
+</html>
